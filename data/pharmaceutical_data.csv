@@ -1,0 +1,8 @@
+generic_name,brand_name,disease,drug_class,dosage_form,route
+donepezil,Aricept,Alzheimer's disease,Acetylcholinesterase inhibitor,Tablet,Oral
+memantine,Namenda,Alzheimer's disease,NMDA receptor antagonist,Tablet,Oral
+lecanemab,Leqembi,Alzheimer's disease,Amyloid beta-directed antibody,Injection,Intravenous
+carbidopa-levodopa,Sinemet,Parkinson's disease,Dopaminergic combination,Tablet,Oral
+rasagiline,Azilect,Parkinson's disease,MAO-B inhibitor,Tablet,Oral
+riluzole,Rilutek,Amyotrophic lateral sclerosis,Glutamate modulator,Tablet,Oral
+edaravone,Radicava,Amyotrophic lateral sclerosis,Free radical scavenger,Injection,Intravenous

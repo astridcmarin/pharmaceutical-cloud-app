@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pharmaceutical Data Explorer</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Pharmaceutical Data Explorer</h1>
+
+        <p class="subtitle">
+            Search pharmaceutical data by drug, brand, disease, or drug class.
+        </p>
+
+        <form method="POST">
+
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="search_term"
+                    name="search_term"
+                    placeholder="Enter a search term..."
+                    value="{{ search_term }}"
+                >
+
+                <button type="submit">Search</button>
+
+            </div>
+
+        </form>
+
+        {% if search_term %}
+
+            <h2>Search Results</h2>
+
+            {% if results %}
+
+                <p>{{ results|length }} result(s) found.</p>
+
+                {% for drug in results %}
+
+                    <div class="drug-card">
+
+                        <h3>{{ drug.generic_name }}</h3>
+
+                        <p>
+                            <strong>Brand:</strong>
+                            {{ drug.brand_name }}
+                        </p>
+
+                        <p>
+                            <strong>Disease:</strong>
+                            {{ drug.disease }}
+                        </p>
+
+                        <p>
+                            <strong>Drug Class:</strong>
+                            {{ drug.drug_class }}
+                        </p>
+
+                        <p>
+                            <strong>Dosage Form:</strong>
+                            {{ drug.dosage_form }}
+                        </p>
+
+                        <p>
+                            <strong>Route:</strong>
+                            {{ drug.route }}
+                        </p>
+
+                    </div>
+
+                {% endfor %}
+
+            {% else %}
+
+                <p>No matching drugs found.</p>
+
+            {% endif %}
+
+        {% endif %}
+
+    </div>
+
+</body>
+</html>
