@@ -1,19 +1,30 @@
 import csv
+import io
 import os
 
 from flask import Flask, render_template, request
+from google.cloud import storage
 
 app = Flask(__name__)
 
 
 def load_drugs():
+    bucket_name = os.environ.get(
+        "BUCKET_NAME",
+        "pharma-data-explorer-am-data"
+    )
+
+    storage_client = storage.Client()
+    bucket = storage_client.bucket(bucket_name)
+    blob = bucket.blob("pharmaceutical_data.csv")
+
+    csv_text = blob.download_as_text()
+
     drugs = []
+    reader = csv.DictReader(io.StringIO(csv_text))
 
-    with open("data/pharmaceutical_data.csv", "r") as file:
-        reader = csv.DictReader(file)
-
-        for drug in reader:
-            drugs.append(drug)
+    for drug in reader:
+        drugs.append(drug)
 
     return drugs
 
