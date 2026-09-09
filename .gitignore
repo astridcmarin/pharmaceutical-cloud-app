@@ -3,3 +3,8 @@ __pycache__/
 .DS_Store
 venv/
 .env
+
+# Local project backups
+app/app_before_neurology_upgrade.py
+data/neurology_medications_before_warnings.csv
+data/pharmaceutical_data_expanded_backup.csv

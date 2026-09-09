@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Pharmaceutical Data Explorer</title>
+    <title>Neurology Pharmaceutical Data Explorer</title>
 
     <link
         rel="stylesheet"
@@ -17,10 +17,11 @@
 
     <div class="container">
 
-        <h1>Pharmaceutical Data Explorer</h1>
+        <h1>Neurology Pharmaceutical Data Explorer</h1>
 
         <p class="subtitle">
-            Search pharmaceutical data by drug, brand, disease, or drug class.
+            Explore neurology medications by drug, brand, condition, drug class,
+            formulation, route, symptoms, adverse effects, warnings, and more.
         </p>
 
         <form method="POST">
@@ -61,8 +62,13 @@
                         </p>
 
                         <p>
-                            <strong>Disease:</strong>
-                            {{ drug.disease }}
+                            <strong>Condition:</strong>
+                            {{ drug.condition }}
+                        </p>
+
+                        <p>
+                            <strong>Approved Use:</strong>
+                            {{ drug.approved_use }}
                         </p>
 
                         <p>
@@ -71,13 +77,48 @@
                         </p>
 
                         <p>
-                            <strong>Dosage Form:</strong>
-                            {{ drug.dosage_form }}
+                            <strong>Formulations:</strong>
+                            {{ drug.formulations }}
                         </p>
 
                         <p>
-                            <strong>Route:</strong>
-                            {{ drug.route }}
+                            <strong>Routes:</strong>
+                            {{ drug.routes }}
+                        </p>
+
+                        <p>
+                            <strong>Common Adverse Effects:</strong>
+                            {{ drug.common_adverse_effects }}
+                        </p>
+
+                        <p class="warnings">
+                            <strong>Warnings:</strong>
+                            {{ drug.warnings }}
+                        </p>
+
+                        <p>
+                            <strong>About the Condition:</strong>
+                            {{ drug.condition_summary }}
+                        </p>
+
+                        <p>
+                            <strong>Common Symptoms:</strong>
+                            {{ drug.common_symptoms }}
+                        </p>
+
+                        <p>
+                            <strong>Off-Label Uses:</strong>
+                            {{ drug.off_label_uses }}
+                        </p>
+
+                        <p>
+                            <strong>Sources:</strong>
+                            {{ drug.source_summary }}
+                        </p>
+
+                        <p>
+                            <strong>Last Verified:</strong>
+                            {{ drug.last_verified }}
                         </p>
 
                     </div>
@@ -91,6 +132,11 @@
             {% endif %}
 
         {% endif %}
+
+        <p class="disclaimer">
+            Educational project only. This application is not intended for
+            clinical decision-making, diagnosis, treatment, or medical advice.
+        </p>
 
     </div>
 
